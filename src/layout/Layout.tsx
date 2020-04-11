@@ -1,14 +1,18 @@
-import React from 'react'
 import { Container } from '@material-ui/core'
+import React from 'react'
 import styled from 'styled-components/macro'
 import Header from './Header'
 
+const StyledLayout = styled(Container)`
+  text-align: center;
+`
+
 const Layout: React.FC = ({ children }) => (
-  <Container>
+  <StyledLayout>
     <Header />
 
     <main>{children}</main>
-  </Container>
+  </StyledLayout>
 )
 
 export default Layout

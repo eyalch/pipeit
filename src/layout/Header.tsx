@@ -1,21 +1,13 @@
+import { Typography } from '@material-ui/core'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-const StyledHeader = styled.header`
-  padding: 20% 0;
-`
-const StyledLogo = styled.h1`
-  font-family: Inconsolata, monospace;
+const _Brand: React.FC = (props) => <Typography component="header" {...props} />
+const StyledBrand = styled(_Brand)`
   font-size: 4.5rem;
-  font-weight: normal;
-  text-align: center;
-  margin: 0;
+  padding: 8vh 0;
 `
 
-const Header = () => (
-  <StyledHeader>
-    <StyledLogo>PipeIt</StyledLogo>
-  </StyledHeader>
-)
+const Header = () => <StyledBrand>PipeIt</StyledBrand>
 
 export default Header
