@@ -1,6 +1,7 @@
 import { Button, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import CodeInput from './CodeInput'
 
 const StyledButtonsContainer = styled.div`
   display: flex;
@@ -50,6 +51,10 @@ const Intro = () => {
           No
         </Button>
       </StyledButtonsContainer>
+
+      {activeSection === CodeSection.Enter ? (
+        <CodeInput />
+      ) : activeSection === CodeSection.Create ? null : null}
     </div>
   )
 }
