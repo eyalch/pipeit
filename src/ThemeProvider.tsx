@@ -1,27 +1,36 @@
-import React from 'react'
 import {
-  MuiThemeProvider,
   createMuiTheme,
+  MuiThemeProvider,
   StylesProvider,
 } from '@material-ui/core'
-import { createGlobalStyle } from 'styled-components/macro'
+import React from 'react'
+import { ThemeProvider as StyledThemeProvider } from 'styled-components/macro'
 
 const theme = createMuiTheme({
+  palette: {
+    type: 'light',
+    primary: { main: '#000' },
+  },
   shape: { borderRadius: 24 },
+  typography: {
+    fontFamily: 'Inconsolata, monospace',
+    h1: { fontSize: '2.25rem' },
+  },
 })
-
-const GlobalStyles = createGlobalStyle``
-
-const ThemeProvider: React.FC = ({ children }) => {
-  return (
-    <MuiThemeProvider theme={theme}>
-      <StylesProvider injectFirst>
-        <GlobalStyles />
-
-        {children}
-      </StylesProvider>
-    </MuiThemeProvider>
-  )
+theme.overrides = {
+  MuiButton: {
+    root: {
+      padding: theme.spacing(1.5, 2),
+    },
+  },
 }
+
+const ThemeProvider: React.FC = ({ children }) => (
+  <MuiThemeProvider theme={theme}>
+    <StyledThemeProvider theme={theme}>
+      <StylesProvider injectFirst>{children}</StylesProvider>
+    </StyledThemeProvider>
+  </MuiThemeProvider>
+)
 
 export default ThemeProvider
