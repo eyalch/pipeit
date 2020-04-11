@@ -14,7 +14,7 @@ const StyledLogo = styled.h1`
 
 const Header = () => (
   <StyledHeader>
-    <StyledLogo>PipeIO</StyledLogo>
+    <StyledLogo>PipeIt</StyledLogo>
   </StyledHeader>
 )
 
