@@ -6,7 +6,7 @@ const CODE_LENGTH = 4
 const INITIAL_CODE = Array<string>(CODE_LENGTH).fill('')
 
 const StyledTextField = styled(TextField)`
-  width: 64px;
+  width: 56px;
   height: auto;
   margin: ${(p) => p.theme.spacing(0, 1)};
 

@@ -2,6 +2,7 @@ import { Button, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import CodeInput from './CodeInput'
+import NewCode from './NewCode'
 
 const StyledButtonsContainer = styled.div`
   display: flex;
@@ -22,8 +23,11 @@ enum CodeSection {
 const Intro = () => {
   const [activeSection, setActiveSection] = useState<CodeSection>()
 
+  const randomNumber = Math.floor(Math.random() * 9999)
+  const randomCode = randomNumber.toString().padStart(4, '0')
+
   return (
-    <div>
+    <>
       <Typography variant="h1">Got a code?</Typography>
       <Typography variant="subtitle2" gutterBottom>
         (from another device)
@@ -54,8 +58,10 @@ const Intro = () => {
 
       {activeSection === CodeSection.Enter ? (
         <CodeInput />
-      ) : activeSection === CodeSection.Create ? null : null}
-    </div>
+      ) : activeSection === CodeSection.Create ? (
+        <NewCode code={randomCode} />
+      ) : null}
+    </>
   )
 }
 
