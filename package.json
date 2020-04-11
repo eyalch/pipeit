@@ -2,6 +2,43 @@
   "name": "pipe-it",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "rules": {
+      "no-restricted-imports": [
+        "error",
+        {
+          "paths": [
+            {
+              "name": "styled-components",
+              "message": "Please import from styled-components/macro."
+            }
+          ],
+          "patterns": [
+            "!styled-components/macro"
+          ]
+        }
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
@@ -18,28 +55,8 @@
     "styled-components": "^5.1.0",
     "typescript": "~3.7.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
-    "@types/styled-components": "^5.0.1"
+    "@types/styled-components": "^5.0.1",
+    "prettier": "^2.0.4"
   }
 }

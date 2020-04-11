@@ -4,7 +4,7 @@ import {
   createMuiTheme,
   StylesProvider,
 } from '@material-ui/core'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components/macro'
 
 const theme = createMuiTheme({
   shape: { borderRadius: 24 },
