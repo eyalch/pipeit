@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Firefox",
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "url": "http://localhost:3000/",
+      "webRoot": "${workspaceFolder}/src",
+      "clearConsoleOnReload": true,
+      "showConsoleCallLocation": true,
+      "firefoxArgs": ["--devtools"],
+      "preferences": {
+        "devtools.theme": "dark",
+        "devtools.toolbox.host": "right",
+        "devtools.toolbox.sidebar.width": 927,
+        "devtools.toolbox.zoomValue": "1.1",
+        "devtools.responsive.viewport.height": 667,
+        "devtools.responsive.viewport.pixelRatio": 2,
+        "devtools.responsive.viewport.width": 375,
+        "devtools.responsive.userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+        "devtools.responsive.reloadNotification.enabled": false,
+        "devtools.chrome.enabled": true
+      }
+    }
+  ]
+}
