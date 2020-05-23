@@ -23,9 +23,6 @@ enum CodeSection {
 const Intro = () => {
   const [activeSection, setActiveSection] = useState<CodeSection>()
 
-  const randomNumber = Math.floor(Math.random() * 9999)
-  const randomCode = randomNumber.toString().padStart(4, '0')
-
   return (
     <>
       <Typography variant="h1">Got a code?</Typography>
@@ -40,8 +37,7 @@ const Intro = () => {
           color="primary"
           disableElevation
           disabled={activeSection === CodeSection.Enter}
-          onClick={() => setActiveSection(CodeSection.Enter)}
-        >
+          onClick={() => setActiveSection(CodeSection.Enter)}>
           Yes
         </Button>
         <Button
@@ -50,8 +46,7 @@ const Intro = () => {
           color="primary"
           disableElevation
           disabled={activeSection === CodeSection.Create}
-          onClick={() => setActiveSection(CodeSection.Create)}
-        >
+          onClick={() => setActiveSection(CodeSection.Create)}>
           No
         </Button>
       </StyledButtonsContainer>
@@ -59,7 +54,7 @@ const Intro = () => {
       {activeSection === CodeSection.Enter ? (
         <CodeInput />
       ) : activeSection === CodeSection.Create ? (
-        <NewCode code={randomCode} />
+        <NewCode />
       ) : null}
     </>
   )

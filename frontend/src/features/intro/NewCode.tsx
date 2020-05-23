@@ -3,8 +3,9 @@ import {
   Typography,
   TypographyProps,
 } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
+import { useSocket } from 'SocketContext'
 
 const _CodeDigit: React.FC<TypographyProps> = (props) => (
   <Typography component="span" {...props} />
@@ -17,16 +18,34 @@ const StyledCircularProgress = styled(CircularProgress)`
   margin: ${(p) => p.theme.spacing(2)}px;
 `
 
-type NewCodeProps = { code: string }
+const NewCode = () => {
+  const [code, setCode] = useState<string | null>(null)
 
-const NewCode: React.FC<NewCodeProps> = ({ code }) => (
-  <div>
-    {code.split('').map((digit, i) => (
-      <StyledCodeDigit key={i}>{digit}</StyledCodeDigit>
-    ))}
-    <Typography>Enter this code on another device...</Typography>
-    <StyledCircularProgress disableShrink />
-  </div>
-)
+  const { setSocket } = useSocket()
+
+  useEffect(() => {
+    const socket = new WebSocket('ws://localhost:3000/code/new')
+
+    socket.onmessage = function (event) {
+      setCode(event.data)
+    }
+
+    setSocket(socket)
+  }, [setSocket])
+
+  return (
+    <>
+      {code && (
+        <>
+          {code.split('').map((digit, i) => (
+            <StyledCodeDigit key={i}>{digit}</StyledCodeDigit>
+          ))}
+          <Typography>Enter this code on another device...</Typography>
+        </>
+      )}
+      <StyledCircularProgress disableShrink={!!code} />
+    </>
+  )
+}
 
 export default NewCode

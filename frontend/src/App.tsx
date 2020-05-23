@@ -3,15 +3,18 @@ import React from 'react'
 import Intro from './features/intro/Intro'
 import Layout from './layout/Layout'
 import ThemeProvider from './ThemeProvider'
+import { SocketProvider } from './SocketContext'
 
 const App = () => (
-  <ThemeProvider>
-    <CssBaseline />
+  <SocketProvider>
+    <ThemeProvider>
+      <CssBaseline />
 
-    <Layout>
-      <Intro />
-    </Layout>
-  </ThemeProvider>
+      <Layout>
+        <Intro />
+      </Layout>
+    </ThemeProvider>
+  </SocketProvider>
 )
 
 export default App
