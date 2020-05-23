@@ -1,9 +1,9 @@
-import { CssBaseline } from '@material-ui/core'
-import React from 'react'
-import Intro from './features/intro/Intro'
-import Layout from './layout/Layout'
-import ThemeProvider from './ThemeProvider'
-import { SocketProvider } from './SocketContext'
+import { CssBaseline } from "@material-ui/core"
+import React from "react"
+import Intro from "./features/intro/Intro"
+import Layout from "./layout/Layout"
+import ThemeProvider from "./ThemeProvider"
+import { SocketProvider } from "./SocketContext"
 
 const App = () => (
   <SocketProvider>

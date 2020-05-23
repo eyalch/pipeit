@@ -2,10 +2,10 @@ import {
   CircularProgress,
   Typography,
   TypographyProps,
-} from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
-import styled from 'styled-components/macro'
-import { useSocket } from 'SocketContext'
+} from "@material-ui/core"
+import React, { useEffect, useState } from "react"
+import styled from "styled-components/macro"
+import { useSocket } from "SocketContext"
 
 const _CodeDigit: React.FC<TypographyProps> = (props) => (
   <Typography component="span" {...props} />
@@ -24,7 +24,7 @@ const NewCode = () => {
   const { setSocket } = useSocket()
 
   useEffect(() => {
-    const socket = new WebSocket('ws://localhost:3000/code/new')
+    const socket = new WebSocket("ws://localhost:3000/code/new")
 
     socket.onmessage = function (event) {
       setCode(event.data)
@@ -37,7 +37,7 @@ const NewCode = () => {
     <>
       {code && (
         <>
-          {code.split('').map((digit, i) => (
+          {code.split("").map((digit, i) => (
             <StyledCodeDigit key={i}>{digit}</StyledCodeDigit>
           ))}
           <Typography>Enter this code on another device...</Typography>

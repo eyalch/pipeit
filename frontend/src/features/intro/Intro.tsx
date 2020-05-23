@@ -1,8 +1,8 @@
-import { Button, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
-import styled from 'styled-components/macro'
-import CodeInput from './CodeInput'
-import NewCode from './NewCode'
+import { Button, Typography } from "@material-ui/core"
+import React, { useState } from "react"
+import styled from "styled-components/macro"
+import CodeInput from "./CodeInput"
+import NewCode from "./NewCode"
 
 const StyledButtonsContainer = styled.div`
   display: flex;
@@ -37,7 +37,8 @@ const Intro = () => {
           color="primary"
           disableElevation
           disabled={activeSection === CodeSection.Enter}
-          onClick={() => setActiveSection(CodeSection.Enter)}>
+          onClick={() => setActiveSection(CodeSection.Enter)}
+        >
           Yes
         </Button>
         <Button
@@ -46,7 +47,8 @@ const Intro = () => {
           color="primary"
           disableElevation
           disabled={activeSection === CodeSection.Create}
-          onClick={() => setActiveSection(CodeSection.Create)}>
+          onClick={() => setActiveSection(CodeSection.Create)}
+        >
           No
         </Button>
       </StyledButtonsContainer>

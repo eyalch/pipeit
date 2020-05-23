@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState } from "react"
 
 type SocketContextType = {
   socket: WebSocket | null
@@ -11,7 +11,7 @@ const SocketContext = createContext<SocketContextType>({
 })
 
 export const SocketProvider: React.FC = ({ children }) => {
-  const [socket, setSocket] = useState<SocketContextType['socket']>(null)
+  const [socket, setSocket] = useState<SocketContextType["socket"]>(null)
 
   return (
     <SocketContext.Provider value={{ socket, setSocket }}>

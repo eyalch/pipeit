@@ -2,19 +2,19 @@ import {
   createMuiTheme,
   MuiThemeProvider,
   StylesProvider,
-} from '@material-ui/core'
-import React from 'react'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components/macro'
+} from "@material-ui/core"
+import React from "react"
+import { ThemeProvider as StyledThemeProvider } from "styled-components/macro"
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   palette: {
-    type: 'light',
-    primary: { main: '#000' },
+    type: "light",
+    primary: { main: "#000" },
   },
   shape: { borderRadius: 24 },
   typography: {
-    fontFamily: 'Inconsolata, monospace',
-    h1: { fontSize: '2.25rem' },
+    fontFamily: "Inconsolata, monospace",
+    h1: { fontSize: "2.25rem" },
   },
 })
 theme.overrides = {
