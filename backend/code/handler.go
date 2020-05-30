@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gorilla/mux"
+	"github.com/go-chi/chi"
 	"github.com/gorilla/websocket"
 )
 
@@ -20,11 +20,12 @@ type handler struct {
 }
 
 // NewHandler returns an http.Handler that handles /code routes
-func NewHandler(r *mux.Router) {
+func NewHandler() http.Handler {
 	h := handler{store{}}
 
-	s := r.PathPrefix("/code").Subrouter()
-	s.HandleFunc("/new", h.newCodeHandler)
+	r := chi.NewRouter()
+	r.Post("/new", h.newCodeHandler)
+	return r
 }
 
 func (h *handler) newCodeHandler(w http.ResponseWriter, r *http.Request) {
